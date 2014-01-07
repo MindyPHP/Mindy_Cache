@@ -1,5 +1,5 @@
 <?php
-use Tests\CacheTestCase;
+namespace Mindy\Cache;
 
 
 /**

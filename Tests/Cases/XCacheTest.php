@@ -1,7 +1,7 @@
 <?php
-
+namespace Mindy\Cache;
 use Mindy\Cache\XCache;
-use Tests\CacheTestCase;
+
 
 /**
  * Class for testing xcache backend

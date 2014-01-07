@@ -1,6 +1,7 @@
 <?php
+namespace Mindy\Cache;
 use Mindy\Cache\ZendDataCache;
-use Tests\CacheTestCase;
+
 
 
 /**

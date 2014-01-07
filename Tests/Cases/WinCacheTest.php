@@ -1,7 +1,7 @@
 <?php
-
+namespace Mindy\Cache;
 use Mindy\Cache\WinCache;
-use Tests\CacheTestCase;
+
 
 /**
  * Class for testing wincache backend

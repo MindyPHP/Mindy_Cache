@@ -1,7 +1,6 @@
 <?php
 
-use Mindy\Cache\ApcCache;
-use Tests\CacheTestCase;
+namespace Mindy\Cache;
 
 
 /**
