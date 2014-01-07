@@ -1,8 +1,9 @@
 <?php
 
-namespace Mindy\Cache;
+namespace Tests;
 
 use Mindy\Cache\FileCache;
+use Tests\CacheTestCase;
 
 /**
  * Class for testing file cache backend
@@ -42,9 +43,9 @@ class FileCacheTest extends CacheTestCase
 
         self::$time = \time();
         $this->assertTrue($cache->add('expire_testa', 'expire_testa', 2));
-        static::$time++;
+        self::$time++;
         $this->assertEquals('expire_testa', $cache->get('expire_testa'));
-        static::$time++;
+        self::$time++;
         $this->assertFalse($cache->get('expire_testa'));
     }
 }
