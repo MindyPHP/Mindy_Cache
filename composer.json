@@ -1,6 +1,6 @@
 {
-    "name": "mindy/query",
-    "homepage": "https://github.com/studio107/Mindy_Query",
+    "name": "mindy/cache",
+    "homepage": "https://github.com/studio107/Mindy_Cache",
     "license": "MIT",
     "autoload": {
         "psr-0": {
@@ -15,13 +15,13 @@
     },
     "authors": [
         {
-            "name": "Maxim Falaleev",
-            "email": "max@studio107.ru",
+            "name": "Alex Gordeev",
+            "email": "alex@studio107.ru",
             "homepage": "http://studio107.ru",
             "role": "Developer"
         }
     ],
     "support": {
-        "issues": "https://github.com/studio107/Mindy_Query/issues?state=open"
+        "issues": "https://github.com/studio107/Mindy_Cache/issues?state=open"
     }
 }
