@@ -1,6 +1,7 @@
 <?php
 
-namespace Tests;
+namespace Mindy\Cache;
+use Tests\TestCase;
 
 /**
  * Mock for the time() function for caching classes
@@ -12,6 +13,7 @@ function time()
 }
 
 /**
+ * Base class for testing cache backends
  * Base class for testing cache backends
  */
 abstract class CacheTestCase extends TestCase
