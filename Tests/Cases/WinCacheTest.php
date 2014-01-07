@@ -1,6 +1,6 @@
 <?php
+
 namespace Mindy\Cache;
-use Mindy\Cache\WinCache;
 
 
 /**
@@ -10,24 +10,24 @@ use Mindy\Cache\WinCache;
  */
 class WinCacheTest extends CacheTestCase
 {
-	private $_cacheInstance = null;
+    private $_cacheInstance = null;
 
-	/**
-	 * @return \Mindy\Cache\WinCache
-	 */
-	protected function getCacheInstance()
-	{
-		if (!extension_loaded('wincache')) {
-			$this->markTestSkipped("Wincache not installed. Skipping.");
-		}
+    /**
+     * @return \Mindy\Cache\WinCache
+     */
+    protected function getCacheInstance()
+    {
+        if (!extension_loaded('wincache')) {
+            $this->markTestSkipped("Wincache not installed. Skipping.");
+        }
 
-		if (!ini_get('wincache.ucenabled')) {
-			$this->markTestSkipped("Wincache user cache disabled. Skipping.");
-		}
+        if (!ini_get('wincache.ucenabled')) {
+            $this->markTestSkipped("Wincache user cache disabled. Skipping.");
+        }
 
-		if ($this->_cacheInstance === null) {
-			$this->_cacheInstance = new WinCache();
-		}
-		return $this->_cacheInstance;
-	}
+        if ($this->_cacheInstance === null) {
+            $this->_cacheInstance = new WinCache();
+        }
+        return $this->_cacheInstance;
+    }
 }

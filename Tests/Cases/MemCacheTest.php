@@ -1,7 +1,6 @@
 <?php
-namespace Mindy\Cache;
-use Mindy\Cache\MemCache;
 
+namespace Mindy\Cache;
 
 /**
  * Class for testing memcache cache backend

@@ -2,8 +2,6 @@
 
 namespace Mindy\Cache;
 
-use Mindy\Cache\FileCache;
-
 /**
  * Class for testing file cache backend
  * @group caching

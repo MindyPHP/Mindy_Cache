@@ -1,4 +1,5 @@
 <?php
+
 namespace Mindy\Cache;
 
 
@@ -9,36 +10,36 @@ namespace Mindy\Cache;
  */
 class MemCachedTest extends CacheTestCase
 {
-	private $_cacheInstance = null;
+    private $_cacheInstance = null;
 
-	/**
-	 * @return MemCache
-	 */
-	protected function getCacheInstance()
-	{
-		if (!extension_loaded("memcached")) {
-			$this->markTestSkipped("memcached not installed. Skipping.");
-		}
+    /**
+     * @return MemCache
+     */
+    protected function getCacheInstance()
+    {
+        if (!extension_loaded("memcached")) {
+            $this->markTestSkipped("memcached not installed. Skipping.");
+        }
 
-		if ($this->_cacheInstance === null) {
-			$this->_cacheInstance = new MemCache(['useMemcached' => true]);
-		}
-		return $this->_cacheInstance;
-	}
+        if ($this->_cacheInstance === null) {
+            $this->_cacheInstance = new MemCache(['useMemcached' => true]);
+        }
+        return $this->_cacheInstance;
+    }
 
-	public function testExpire()
-	{
-		if (getenv('TRAVIS') == 'true') {
-			$this->markTestSkipped('Can not reliably test memcached expiry on travis-ci.');
-		}
-		parent::testExpire();
-	}
+    public function testExpire()
+    {
+        if (getenv('TRAVIS') == 'true') {
+            $this->markTestSkipped('Can not reliably test memcached expiry on travis-ci.');
+        }
+        parent::testExpire();
+    }
 
-	public function testExpireAdd()
-	{
-		if (getenv('TRAVIS') == 'true') {
-			$this->markTestSkipped('Can not reliably test memcached expiry on travis-ci.');
-		}
-		parent::testExpireAdd();
-	}
+    public function testExpireAdd()
+    {
+        if (getenv('TRAVIS') == 'true') {
+            $this->markTestSkipped('Can not reliably test memcached expiry on travis-ci.');
+        }
+        parent::testExpireAdd();
+    }
 }

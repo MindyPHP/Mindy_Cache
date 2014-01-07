@@ -1,6 +1,6 @@
 <?php
+
 namespace Mindy\Cache;
-use Mindy\Cache\XCache;
 
 
 /**
