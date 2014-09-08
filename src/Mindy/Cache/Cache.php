@@ -121,15 +121,16 @@ abstract class Cache implements ArrayAccess
      * Retrieves a value from cache with a specified key.
      * @param mixed $key a key identifying the cached value. This can be a simple string or
      * a complex data structure consisting of factors representing the key.
+     * @param bool $default
      * @return mixed the value stored in cache, false if the value is not in the cache, expired,
      * or the dependency associated with the cached data has changed.
      */
-    public function get($key)
+    public function get($key, $default = false)
     {
         $key = $this->buildKey($key);
         $value = $this->getValue($key);
         if ($value === false || $this->serializer === false) {
-            return $value;
+            return $default;
         } elseif ($this->serializer === null) {
             $value = unserialize($value);
         } else {
@@ -138,7 +139,7 @@ abstract class Cache implements ArrayAccess
         if (is_array($value) && !($value[1] instanceof Dependency && $value[1]->getHasChanged($this))) {
             return $value[0];
         } else {
-            return false;
+            return $default;
         }
     }
 
