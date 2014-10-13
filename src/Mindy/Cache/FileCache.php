@@ -7,6 +7,7 @@
 
 namespace Mindy\Cache;
 use InvalidArgumentException;
+use Mindy\Helper\Alias;
 
 
 /**
@@ -23,6 +24,7 @@ use InvalidArgumentException;
  */
 class FileCache extends Cache
 {
+    public $cacheAlias = 'application.runtime.cache';
     /**
      * @var null the directory to store cache files. You may use path alias here.
      * If not set, it will use the "cache" subdirectory under the application runtime path.
@@ -68,7 +70,7 @@ class FileCache extends Cache
         parent::init();
 
         if(!$this->cachePath) {
-            throw new InvalidArgumentException("Please set cachePath");
+            $this->cachePath = Alias::get($this->cacheAlias);
         }
 
         if (!is_dir($this->cachePath)) {
@@ -126,7 +128,7 @@ class FileCache extends Cache
         $expire += time();
 
         $cacheFile = $this->getCacheFile($key);
-        if ($this->directoryLevel > 0) {
+        if ($this->directoryLevel > 0 && !is_dir(dirname($cacheFile))) {
             @mkdir(dirname($cacheFile), $this->dirMode, true);
         }
         if (@file_put_contents($cacheFile, $value, LOCK_EX) !== false) {
