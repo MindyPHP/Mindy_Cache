@@ -5,11 +5,10 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\caching;
-
-use yii\base\InvalidConfigException;
-use Yii;
-use yii\db\Connection;
+namespace Mindy\Cache;
+use Mindy\Base\Mindy;
+use Mindy\Exception\InvalidConfigException;
+use Mindy\Query\Connection;
 
 /**
  * DbDependency represents a dependency based on the query result of a SQL statement.
@@ -45,7 +44,7 @@ class DbDependency extends Dependency
      */
     protected function generateDependencyData($cache)
     {
-        $db = Yii::$app->getComponent($this->db);
+        $db = Mindy::app()->getComponent($this->db);
         if (!$db instanceof Connection) {
             throw new InvalidConfigException("DbDependency::db must be the application component ID of a DB connection.");
         }
