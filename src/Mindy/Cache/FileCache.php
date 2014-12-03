@@ -104,7 +104,7 @@ class FileCache extends Cache
     {
         $cacheFile = $this->getCacheFile($key);
 
-        if (@filemtime($cacheFile) > time()) {
+        if (file_exists($cacheFile) && @filemtime($cacheFile) > time()) {
             return @file_get_contents($cacheFile);
         } else {
             return false;
