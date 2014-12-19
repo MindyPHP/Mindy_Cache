@@ -91,7 +91,7 @@ class FileCache extends Cache
     public function exists($key)
     {
         $cacheFile = $this->getCacheFile($this->buildKey($key));
-        return @filemtime($cacheFile) > time();
+        return file_exists($cacheFile) && @filemtime($cacheFile) > time();
     }
 
     /**
@@ -153,7 +153,7 @@ class FileCache extends Cache
     protected function addValue($key, $value, $expire)
     {
         $cacheFile = $this->getCacheFile($key);
-        if (@filemtime($cacheFile) > time()) {
+        if (file_exists($cacheFile) && @filemtime($cacheFile) > time()) {
             return false;
         }
         return $this->setValue($key, $value, $expire);
@@ -168,7 +168,10 @@ class FileCache extends Cache
     protected function deleteValue($key)
     {
         $cacheFile = $this->getCacheFile($key);
-        return @unlink($cacheFile);
+        if (file_exists($cacheFile)) {
+            return @unlink($cacheFile);
+        }
+        return true;
     }
 
     /**
@@ -237,7 +240,9 @@ class FileCache extends Cache
                         @rmdir($fullPath);
                     }
                 } elseif (!$expiredOnly || $expiredOnly && @filemtime($fullPath) < time()) {
-                    @unlink($fullPath);
+                    if (file_exists($fullPath)) {
+                        @unlink($fullPath);
+                    }
                 }
             }
             closedir($handle);
