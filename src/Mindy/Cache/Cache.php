@@ -107,7 +107,7 @@ abstract class Cache implements ArrayAccess
      * @param mixed $key the key to be normalized
      * @return string the generated cache key
      */
-    protected function buildKey($key)
+    public function buildKey($key)
     {
         if (is_string($key)) {
             $key = ctype_alnum($key) && mb_strlen($key, '8bit') <= 32 ? $key : md5($key);
