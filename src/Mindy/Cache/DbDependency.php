@@ -6,6 +6,7 @@
  */
 
 namespace Mindy\Cache;
+
 use Mindy\Base\Mindy;
 use Mindy\Exception\InvalidConfigException;
 use Mindy\Query\Connection;
@@ -18,6 +19,7 @@ use Mindy\Query\Connection;
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
+ * @package Mindy\Cache
  */
 class DbDependency extends Dependency
 {

@@ -14,18 +14,13 @@
 namespace Mindy\Cache;
 
 /**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
-
-/**
  * TagDependency associates a cached data item with one or multiple [[tags]].
  *
  * By calling [[invalidate()]], you can invalidate all cached data items that are associated with the specified tag name(s).
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
+ * @package Mindy\Cache
  */
 class TagDependency extends Dependency
 {

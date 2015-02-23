@@ -6,6 +6,7 @@
  */
 
 namespace Mindy\Cache;
+
 use InvalidArgumentException;
 
 /**
@@ -16,27 +17,28 @@ use InvalidArgumentException;
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
+ * @package Mindy\Cache
  */
 class FileDependency extends Dependency
 {
-	/**
-	 * @var string the name of the file whose last modification time is used to
-	 * check if the dependency has been changed.
-	 */
-	public $fileName;
+    /**
+     * @var string the name of the file whose last modification time is used to
+     * check if the dependency has been changed.
+     */
+    public $fileName;
 
-	/**
-	 * Generates the data needed to determine if dependency has been changed.
-	 * This method returns the file's last modification time.
-	 * @param Cache $cache the cache component that is currently evaluating this dependency
-	 * @return mixed the data needed to determine if dependency has been changed.
-	 * @throws InvalidArgumentException if [[fileName]] is not set
-	 */
-	protected function generateDependencyData($cache)
-	{
-		if ($this->fileName === null) {
-			throw new InvalidArgumentException('FileDependency::fileName must be set');
-		}
-		return @filemtime($this->fileName);
-	}
+    /**
+     * Generates the data needed to determine if dependency has been changed.
+     * This method returns the file's last modification time.
+     * @param Cache $cache the cache component that is currently evaluating this dependency
+     * @return mixed the data needed to determine if dependency has been changed.
+     * @throws InvalidArgumentException if [[fileName]] is not set
+     */
+    protected function generateDependencyData($cache)
+    {
+        if ($this->fileName === null) {
+            throw new InvalidArgumentException('FileDependency::fileName must be set');
+        }
+        return @filemtime($this->fileName);
+    }
 }

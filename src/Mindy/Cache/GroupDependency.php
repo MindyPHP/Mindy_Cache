@@ -17,6 +17,7 @@ use InvalidArgumentException;
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
+ * @package Mindy\Cache
  */
 class GroupDependency extends Dependency
 {

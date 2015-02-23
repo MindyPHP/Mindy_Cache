@@ -1,14 +1,9 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
 
 namespace Mindy\Cache;
+
 use InvalidArgumentException;
 use Mindy\Helper\Alias;
-
 
 /**
  * FileCache implements a cache component using files.
@@ -21,6 +16,7 @@ use Mindy\Helper\Alias;
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
+ * @package Mindy\Cache
  */
 class FileCache extends Cache
 {
