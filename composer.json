@@ -2,7 +2,6 @@
   "name": "mindy/cache",
   "homepage": "https://github.com/studio107/Mindy_Cache",
   "license": "BSD",
-  "version": "1.0",
   "autoload": {
     "psr-4": {
       "Mindy\\Cache\\": "src/Mindy/Cache"
