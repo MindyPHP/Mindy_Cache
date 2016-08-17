@@ -1,6 +1,7 @@
 <?php
 
 namespace Mindy\Cache\Tests;
+use Mindy\Cache\XCache;
 
 
 /**
