@@ -1,5 +1,7 @@
 .idea
 *.iml
-
 build
-Tests/Runtime
+vendor
+composer.lock
+.DS_Store
+test/runtime
